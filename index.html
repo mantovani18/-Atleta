@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="+Atleta - Formando campeões dentro e fora de campo." />
+  <title>+Atleta | Time de Futebol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header" id="topo">
+    <nav class="navbar container" aria-label="Menu principal">
+      <a href="#topo" class="logo" aria-label="+Atleta">
+        <img src="img/Logo.jpg" alt="Logo +Atleta" />
+        <span>+Atleta</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#categorias">Categorias</a></li>
+        <li><a href="#local">Treinos</a></li>
+        <li><a href="#professores">Professores</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#videos">Vídeos</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="agendar.html" class="btn btn-small ripple">Agendar Aula</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero parallax" id="home">
+      <div class="overlay"></div>
+      <div class="container hero-content reveal">
+        <p class="hero-tag">Treinamento de Alto Rendimento</p>
+        <p class="hero-urgency"><i class="fa-solid fa-clock"></i> Turmas com vagas limitadas para este mês</p>
+        <h1>+Atleta</h1>
+        <p class="hero-subtitle">Formando campeões dentro e fora de campo com metodologia profissional, disciplina e mentalidade vencedora.</p>
+        <div class="hero-actions">
+          <a href="agendar.html" class="btn btn-large ripple btn-primary-cta">Agendar Aula Experimental</a>
+          <a href="#depoimentos" class="btn btn-large btn-ghost">Ver Resultados</a>
+        </div>
+        <p class="hero-proof">+200 atletas formados • Equipe licenciada • Estrutura completa</p>
+      </div>
+    </section>
+
+    <section class="stats section reveal">
+      <div class="container stats-grid">
+        <article>
+          <h3 class="counter" data-target="200">0</h3>
+          <p>Atletas Formados</p>
+        </article>
+        <article>
+          <h3 class="counter" data-target="8">0</h3>
+          <p>Anos de Metodologia</p>
+        </article>
+        <article>
+          <h3 class="counter" data-target="30">0</h3>
+          <p>Competições Oficiais</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal" id="sobre">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Sobre o Time</h2>
+          <p>O +Atleta é um projeto de formação esportiva focado em técnica, disciplina e desenvolvimento humano.</p>
+        </div>
+
+        <div class="about-grid">
+          <article class="card">
+            <h3>Missão</h3>
+            <p>Desenvolver atletas completos, com excelência esportiva e valores sólidos para a vida.</p>
+          </article>
+          <article class="card">
+            <h3>Visão</h3>
+            <p>Ser referência regional na formação de jogadores e cidadãos preparados para grandes desafios.</p>
+          </article>
+          <article class="card">
+            <h3>Valores</h3>
+            <p>Respeito, comprometimento, espírito de equipe, disciplina e superação diária.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="categorias">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Categorias</h2>
+          <p>Turmas por idade com foco técnico, físico e mental para acelerar a evolução em campo.</p>
+        </div>
+
+        <div class="categories-grid">
+          <article class="category-card">
+            <i class="fa-solid fa-futbol"></i>
+            <h3>Sub-10</h3>
+            <p>Base técnica, coordenação e fundamentos com foco lúdico e disciplinar.</p>
+          </article>
+          <article class="category-card">
+            <i class="fa-solid fa-people-group"></i>
+            <h3>Sub-13</h3>
+            <p>Evolução tática, tomada de decisão e fortalecimento da mentalidade competitiva.</p>
+          </article>
+          <article class="category-card">
+            <i class="fa-solid fa-trophy"></i>
+            <h3>Sub-17</h3>
+            <p>Alto desempenho, preparação física avançada e foco em performance de jogo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="diferenciais">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Diferenciais +Atleta</h2>
+          <p>Um centro de formação pensado para gerar performance real e confiança para atletas e famílias.</p>
+        </div>
+
+        <div class="about-grid">
+          <article class="card hover-card">
+            <h3><i class="fa-solid fa-chart-line"></i> Evolução Mensurável</h3>
+            <p>Acompanhamento contínuo de desempenho técnico e físico com metas claras de progresso.</p>
+          </article>
+          <article class="card hover-card">
+            <h3><i class="fa-solid fa-shield-halved"></i> Formação Completa</h3>
+            <p>Treinamos disciplina, liderança e inteligência de jogo para formar atletas e cidadãos.</p>
+          </article>
+          <article class="card hover-card">
+            <h3><i class="fa-solid fa-medal"></i> Ambiente Competitivo</h3>
+            <p>Treinos intensos, metodologia moderna e padrão de alto rendimento em cada sessão.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="local">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Local de Treinamento</h2>
+          <p>Estrutura preparada para potencializar o desempenho dos atletas.</p>
+        </div>
+
+        <div class="training-grid">
+          <div class="card">
+            <h3><i class="fa-solid fa-location-dot"></i> Endereço</h3>
+            <p>Campo Municipal +Atleta<br />Av. Pres. Bernardes, 125 - Centro<br />Rolândia - PR, 86600-153</p>
+
+            <h3><i class="fa-solid fa-calendar-days"></i> Dias e Horários</h3>
+            <p>Terças e Quintas: 18h às 20h<br />Sábados: 09h às 11h</p>
+          </div>
+
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps?q=Av.%20Pres.%20Bernardes,%20125%20-%20Centro,%20Rol%C3%A2ndia%20-%20PR,%2086600-153&output=embed"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mapa do local de treinamento"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="professores">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Professores</h2>
+          <p>Equipe técnica qualificada para formar atletas de alto nível.</p>
+        </div>
+
+        <div class="coach-grid">
+          <article class="coach-card">
+            <img src="img/joaoT.png" alt="Professor João Silva" loading="lazy" decoding="async" />
+            <div class="coach-info">
+              <h3>João Torelli</h3>
+              <p><strong>Especialidade:</strong> Técnico de Campo</p>
+              <p><strong>Experiência:</strong> Técnico Licenciado CBF</p>
+            </div>
+          </article>
+
+          <article class="coach-card">
+            <img src="img/bolinnha.png" alt="Professor Marcos Lima" loading="lazy" decoding="async" />
+            <div class="coach-info">
+              <h3>Pedro Trassi</h3>
+              <p><strong>Especialidade:</strong> Preparação Física</p>
+              <p><strong>Experiência:</strong> 12 anos em categorias de base</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="galeria">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Galeria de Fotos</h2>
+          <p>Momentos de treino, superação e evolução dentro de campo.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <img src="img/fotoTime.png" alt="Treino em campo" loading="lazy" decoding="async" />
+          <img src="img/fotoTime2.png" alt="Equipe em preparação física" loading="lazy" decoding="async" />
+         
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="videos">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Vídeos de Treinamento</h2>
+          <p>Conteúdo para acompanhar nossa metodologia de evolução.</p>
+        </div>
+
+        <div class="video-grid">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/Y50JfBqB8Zw" title="Treino de futebol 1" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/NMre6IAAAiU" title="Treino de futebol 2" loading="lazy" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="depoimentos">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Depoimentos</h2>
+          <p>Resultados reais de famílias que escolheram uma formação séria para seus atletas.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <p>“Meu filho evoluiu muito na disciplina e no desempenho técnico em poucos meses.”</p>
+            <h4>Ana Paula, mãe de atleta</h4>
+          </article>
+          <article class="testimonial-card">
+            <p>“Treinos intensos, equipe séria e ambiente motivador. Recomendo para todos.”</p>
+            <h4>Lucas, atleta Sub-17</h4>
+          </article>
+          <article class="testimonial-card">
+            <p>“Estrutura excelente e professores extremamente preparados para formação de base.”</p>
+            <h4>Ricardo, pai de atleta</h4>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal final-cta" id="agendar-final">
+      <div class="container">
+        <div class="cta-box">
+          <p class="hero-tag">Últimas vagas para avaliação deste mês</p>
+          <h2>Pronto para acelerar a evolução do seu atleta?</h2>
+          <p>Garanta uma aula experimental no +Atleta e conheça de perto nossa metodologia de alto rendimento.</p>
+          <a href="agendar.html" class="btn btn-large ripple btn-primary-cta">Quero Agendar Agora</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#topo" class="logo footer-logo" aria-label="+Atleta">
+          <img src="img/Logo.jpg" alt="Logo +Atleta" />
+          <span>+Atleta</span>
+        </a>
+        <p>Formando atletas com técnica, valores e mentalidade vencedora.</p>
+      </div>
+
+      <div>
+        <h4>Contato</h4>
+        <p><i class="fa-brands fa-whatsapp"></i> (43) 99621-2570</p>
+        <p><i class="fa-solid fa-location-dot"></i> Av. Pres. Bernardes, 125 - Centro, Rolândia/PR - 86600-153</p>
+      </div>
+
+      <div>
+        <h4>Redes Sociais</h4>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <p class="copyright">© 2026 +Atleta. Todos os direitos reservados.</p>
+  </footer>
+
+  <a href="https://wa.me/5543996212570?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20aula%20no%20%2BAtleta." class="whatsapp-float pulse-whatsapp" aria-label="Falar no WhatsApp" target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>

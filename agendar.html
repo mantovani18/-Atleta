@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Agende uma aula experimental no +Atleta." />
+  <title>Agendar Aula | +Atleta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="schedule-page">
+  <header class="header" id="topo">
+    <nav class="navbar container" aria-label="Menu principal">
+      <a href="index.html" class="logo" aria-label="+Atleta">
+        <img src="img/Logo.jpg" alt="Logo +Atleta" />
+        <span>+Atleta</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#sobre">Sobre</a></li>
+        <li><a href="index.html#categorias">Categorias</a></li>
+        <li><a href="index.html#local">Treinos</a></li>
+        <li><a href="index.html#professores">Professores</a></li>
+        <li><a href="index.html#depoimentos">Depoimentos</a></li>
+        <li><a href="agendar.html" class="btn btn-small ripple">Agendar Aula</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section form-section reveal">
+      <div class="container">
+        <div class="section-heading">
+          <h1>Agendar Aula</h1>
+          <p>Preencha os dados para garantir uma aula experimental. Retorno rápido pelo WhatsApp.</p>
+          <p class="urgency-text"><i class="fa-solid fa-circle-exclamation"></i> Vagas limitadas por categoria.</p>
+        </div>
+
+        <form id="scheduleForm" class="schedule-form" novalidate>
+          <div class="form-group">
+            <label for="nome">Nome completo *</label>
+            <input type="text" id="nome" name="nome" required />
+            <small class="error-text"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="idade">Idade *</label>
+            <input type="number" id="idade" name="idade" min="4" max="25" required />
+            <small class="error-text"></small>
+          </div>
+
+          <div class="form-group">
+            <label>Já jogou em outro time? *</label>
+            <div class="radio-group">
+              <label><input type="radio" name="jogou" value="Sim" required /> Sim</label>
+              <label><input type="radio" name="jogou" value="Não" required /> Não</label>
+            </div>
+            <small class="error-text"></small>
+          </div>
+
+          <div class="form-group" id="timeAnteriorGroup">
+            <label for="timeAnterior">Se sim, qual?</label>
+            <input type="text" id="timeAnterior" name="timeAnterior" />
+            <small class="error-text"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="telefone">Telefone *</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(43) 99999-9999" required />
+            <small class="error-text"></small>
+          </div>
+
+          <button type="submit" class="btn btn-large ripple full-width" id="submitBtn">
+            <i class="fa-brands fa-whatsapp"></i> Enviar pelo WhatsApp
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div class="loader-overlay" id="loaderOverlay" aria-hidden="true">
+    <div class="loader"></div>
+    <p>Enviando...</p>
+  </div>
+
+  <footer class="footer compact-footer">
+    <p class="copyright">© 2026 +Atleta. Todos os direitos reservados.</p>
+  </footer>
+
+  <a href="https://wa.me/5543996212570?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20aula%20experimental%20no%20%2BAtleta." class="whatsapp-float pulse-whatsapp" aria-label="Falar no WhatsApp" target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
