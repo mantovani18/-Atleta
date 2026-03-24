@@ -32,7 +32,7 @@
         <li><a href="#professores">Professores</a></li>
         <li><a href="#galeria">Galeria</a></li>
         <li><a href="#videos">Vídeos</a></li>
-        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#eventos">Eventos</a></li>
         <li><a href="agendar.html" class="btn btn-small ripple">Agendar Aula</a></li>
       </ul>
     </nav>
@@ -48,7 +48,7 @@
         <p class="hero-subtitle">Formando campeões dentro e fora de campo com metodologia profissional, disciplina e mentalidade vencedora.</p>
         <div class="hero-actions">
           <a href="agendar.html" class="btn btn-large ripple btn-primary-cta">Agendar Aula Experimental</a>
-          <a href="#depoimentos" class="btn btn-large btn-ghost">Ver Resultados</a>
+          <a href="#eventos" class="btn btn-large btn-ghost">Ver Eventos</a>
         </div>
         <p class="hero-proof">+200 atletas formados • Equipe licenciada • Estrutura completa</p>
       </div>
@@ -237,26 +237,103 @@
       </div>
     </section>
 
-    <section class="section reveal" id="depoimentos">
+    <section class="section reveal" id="eventos">
       <div class="container">
         <div class="section-heading">
-          <h2>Depoimentos</h2>
-          <p>Resultados reais de famílias que escolheram uma formação séria para seus atletas.</p>
+          <h2>Eventos</h2>
+          <p>Escolha um evento disponível, clique no card e finalize sua inscrição em segundos.</p>
         </div>
 
-        <div class="testimonials-grid">
-          <article class="testimonial-card">
-            <p>“Meu filho evoluiu muito na disciplina e no desempenho técnico em poucos meses.”</p>
-            <h4>Ana Paula, mãe de atleta</h4>
+        <div class="events-grid">
+          <article
+            class="event-card"
+            data-evento="Seletiva Sub-13"
+            data-data="12/04/2026"
+            data-horario="09:00"
+          >
+            <img src="img/fotoTime.png" alt="Capa do evento Seletiva Sub-13" loading="lazy" decoding="async" />
+            <div class="event-content">
+              <h3>Seletiva Sub-13</h3>
+              <p>Avaliação técnica para atletas nascidos entre 2013 e 2014.</p>
+              <p class="event-meta"><i class="fa-solid fa-calendar-days"></i> 12/04/2026 • 09:00</p>
+            </div>
           </article>
-          <article class="testimonial-card">
-            <p>“Treinos intensos, equipe séria e ambiente motivador. Recomendo para todos.”</p>
-            <h4>Lucas, atleta Sub-17</h4>
+
+          <article
+            class="event-card"
+            data-evento="Clínica de Finalização"
+            data-data="19/04/2026"
+            data-horario="14:30"
+          >
+            <img src="img/fotoTime2.png" alt="Capa do evento Clínica de Finalização" loading="lazy" decoding="async" />
+            <div class="event-content">
+              <h3>Clínica de Finalização</h3>
+              <p>Treino intensivo de chute, posicionamento ofensivo e tomada de decisão.</p>
+              <p class="event-meta"><i class="fa-solid fa-calendar-days"></i> 19/04/2026 • 14:30</p>
+            </div>
           </article>
-          <article class="testimonial-card">
-            <p>“Estrutura excelente e professores extremamente preparados para formação de base.”</p>
-            <h4>Ricardo, pai de atleta</h4>
+
+          <article
+            class="event-card"
+            data-evento="Festival +Atleta"
+            data-data="26/04/2026"
+            data-horario="08:00"
+          >
+            <img src="img/Pantera.png" alt="Capa do evento Festival +Atleta" loading="lazy" decoding="async" />
+            <div class="event-content">
+              <h3>Festival +Atleta</h3>
+              <p>Jogos amistosos, desafios técnicos e integração entre categorias.</p>
+              <p class="event-meta"><i class="fa-solid fa-calendar-days"></i> 26/04/2026 • 08:00</p>
+            </div>
           </article>
+        </div>
+        <p class="events-help">Clique no evento para selecionar e preencha a inscrição abaixo.</p>
+
+        <div class="event-signup-wrap hidden" id="eventSignupWrap">
+          <form id="eventSignupForm" class="schedule-form" novalidate>
+            <div class="section-heading event-signup-heading">
+              <h3>Inscrição no Evento</h3>
+              <p id="selectedEventText">Selecione um evento para iniciar sua inscrição.</p>
+            </div>
+
+            <input type="hidden" id="eventoNome" name="eventoNome" />
+            <input type="hidden" id="eventoData" name="eventoData" />
+            <input type="hidden" id="eventoHorario" name="eventoHorario" />
+
+            <div class="form-group">
+              <label for="inscricaoNome">Nome completo *</label>
+              <input type="text" id="inscricaoNome" name="inscricaoNome" required />
+              <small class="error-text"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="inscricaoIdade">Idade *</label>
+              <input type="number" id="inscricaoIdade" name="inscricaoIdade" min="4" max="30" required />
+              <small class="error-text"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="inscricaoNumero">Número *</label>
+              <input type="text" id="inscricaoNumero" name="inscricaoNumero" required />
+              <small class="error-text"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="inscricaoPosicao">Posição que joga *</label>
+              <select id="inscricaoPosicao" name="inscricaoPosicao" required>
+                <option value="">Selecione a posição</option>
+                <option value="Fixo">Fixo</option>
+                <option value="Ala">Ala</option>
+                <option value="Pivô">Pivô</option>
+                <option value="Goleiro">Goleiro</option>
+              </select>
+              <small class="error-text"></small>
+            </div>
+
+            <button type="submit" class="btn btn-large ripple full-width" id="eventSubmitBtn" disabled>
+              Enviar inscrição
+            </button>
+          </form>
         </div>
       </div>
     </section>

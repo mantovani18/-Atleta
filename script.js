@@ -276,3 +276,173 @@ if (scheduleForm) {
     }, 850);
   });
 }
+
+// =========================
+// Eventos + inscrição no Google Sheets
+// =========================
+const GOOGLE_SHEETS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwZ6yvGEt_UGZfAUL8MLfa5PJUMCFpefmGGVSOVf38hVAOV_muCu6MhzEnj3nit8SY1/exec";
+const eventCards = document.querySelectorAll(".event-card");
+const eventSignupWrap = document.getElementById("eventSignupWrap");
+const eventSignupForm = document.getElementById("eventSignupForm");
+const selectedEventText = document.getElementById("selectedEventText");
+const eventSubmitBtn = document.getElementById("eventSubmitBtn");
+
+const eventoNomeInput = document.getElementById("eventoNome");
+const eventoDataInput = document.getElementById("eventoData");
+const eventoHorarioInput = document.getElementById("eventoHorario");
+
+const inscricaoNomeInput = document.getElementById("inscricaoNome");
+const inscricaoIdadeInput = document.getElementById("inscricaoIdade");
+const inscricaoNumeroInput = document.getElementById("inscricaoNumero");
+const inscricaoPosicaoInput = document.getElementById("inscricaoPosicao");
+
+const sendEventRegistration = async (payload) => {
+  if (!GOOGLE_SHEETS_WEBAPP_URL || GOOGLE_SHEETS_WEBAPP_URL.includes("COLE_AQUI")) {
+    alert("Configure a URL do Google Apps Script em script.js para salvar inscrições no Sheets.");
+    return false;
+  }
+
+  try {
+    await fetch(GOOGLE_SHEETS_WEBAPP_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+      mode: "no-cors",
+    });
+
+    return true;
+  } catch (error) {
+    console.error("Erro ao enviar inscrição:", error);
+    return false;
+  }
+};
+
+if (eventCards.length > 0 && eventSignupForm) {
+  const setEventError = (inputOrGroup, message) => {
+    const group = inputOrGroup.closest(".form-group") || inputOrGroup;
+    const errorText = group.querySelector(".error-text");
+    group.classList.add("has-error");
+    if (errorText) errorText.textContent = message;
+  };
+
+  const clearEventError = (inputOrGroup) => {
+    const group = inputOrGroup.closest(".form-group") || inputOrGroup;
+    const errorText = group.querySelector(".error-text");
+    group.classList.remove("has-error");
+    if (errorText) errorText.textContent = "";
+  };
+
+  const validateEventForm = () => {
+    let isValid = true;
+
+    eventSignupForm.querySelectorAll(".form-group").forEach((group) => clearEventError(group));
+
+    if (!eventoNomeInput?.value) {
+      alert("Selecione um evento antes de enviar a inscrição.");
+      isValid = false;
+    }
+
+    if (!inscricaoNomeInput.value.trim()) {
+      setEventError(inscricaoNomeInput, "Informe o nome completo.");
+      isValid = false;
+    }
+
+    if (!inscricaoIdadeInput.value || Number(inscricaoIdadeInput.value) < 4) {
+      setEventError(inscricaoIdadeInput, "Informe uma idade válida.");
+      isValid = false;
+    }
+
+    if (!inscricaoNumeroInput.value.trim()) {
+      setEventError(inscricaoNumeroInput, "Informe o número.");
+      isValid = false;
+    }
+
+    if (!inscricaoPosicaoInput.value.trim()) {
+      setEventError(inscricaoPosicaoInput, "Informe a posição que joga.");
+      isValid = false;
+    }
+
+    return isValid;
+  };
+
+  [inscricaoNomeInput, inscricaoIdadeInput, inscricaoNumeroInput].forEach((input) => {
+    input?.addEventListener("input", () => clearEventError(input));
+  });
+
+  inscricaoPosicaoInput?.addEventListener("change", () => clearEventError(inscricaoPosicaoInput));
+
+  eventCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      eventCards.forEach((eventCard) => eventCard.classList.remove("selected"));
+      card.classList.add("selected");
+
+      const evento = card.dataset.evento || "Evento +Atleta";
+      const data = card.dataset.data || "";
+      const horario = card.dataset.horario || "";
+
+      eventoNomeInput.value = evento;
+      eventoDataInput.value = data;
+      eventoHorarioInput.value = horario;
+
+      if (eventSignupWrap) {
+        eventSignupWrap.classList.remove("hidden");
+      }
+
+      if (selectedEventText) {
+        selectedEventText.textContent = `Evento selecionado: ${evento} • ${data} às ${horario}`;
+      }
+
+      if (eventSubmitBtn) {
+        eventSubmitBtn.disabled = false;
+      }
+    });
+  });
+
+  eventSignupForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!validateEventForm()) return;
+
+    const payload = {
+      nomeCompleto: inscricaoNomeInput.value.trim(),
+      idade: inscricaoIdadeInput.value.trim(),
+      numero: inscricaoNumeroInput.value.trim(),
+      posicao: inscricaoPosicaoInput.value.trim(),
+      evento: eventoNomeInput.value,
+      data: eventoDataInput.value,
+      horario: eventoHorarioInput.value,
+      origem: "site",
+      criadoEm: new Date().toISOString(),
+    };
+
+    if (eventSubmitBtn) {
+      eventSubmitBtn.disabled = true;
+      eventSubmitBtn.style.opacity = "0.8";
+    }
+
+    const sent = await sendEventRegistration(payload);
+
+    if (sent) {
+      alert("Inscrição realizada com sucesso! Seus dados foram enviados.");
+      eventSignupForm.reset();
+
+      eventoNomeInput.value = "";
+      eventoDataInput.value = "";
+      eventoHorarioInput.value = "";
+
+      eventCards.forEach((eventCard) => eventCard.classList.remove("selected"));
+
+      if (selectedEventText) {
+        selectedEventText.textContent = "Selecione um evento para iniciar sua inscrição.";
+      }
+    } else {
+      alert("Não foi possível enviar sua inscrição agora. Tente novamente em instantes.");
+    }
+
+    if (eventSubmitBtn) {
+      eventSubmitBtn.disabled = false;
+      eventSubmitBtn.style.opacity = "1";
+    }
+  });
+}
