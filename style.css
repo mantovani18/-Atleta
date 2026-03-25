@@ -102,8 +102,26 @@ iframe {
   height: 76px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.header .navbar.container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 14px;
+}
+
+.navbar > .logo {
+  order: 2;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar > .menu-toggle {
+  order: 1;
 }
 
 .logo {
@@ -130,9 +148,25 @@ iframe {
 
 .nav-links {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 18px;
   list-style: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: min(82vw, 320px);
+  height: 100vh;
+  padding: 92px 24px 24px;
+  background: rgba(12, 12, 12, 0.98);
+  border-right: 1px solid #314153;
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+  z-index: 1100;
+}
+
+.nav-links.open {
+  transform: translateX(0);
 }
 
 .nav-links a {
@@ -147,14 +181,21 @@ iframe {
   opacity: 1;
 }
 
+.nav-links a[aria-current="page"] {
+  color: var(--green-light);
+  text-shadow: 0 0 18px rgba(158, 194, 223, 0.35);
+}
+
 .menu-toggle {
-  display: none;
+  display: block;
   width: 44px;
   height: 44px;
   border: 1px solid #435267;
   background: transparent;
   border-radius: 10px;
   cursor: pointer;
+  position: relative;
+  z-index: 1200;
 }
 
 .menu-toggle span {
@@ -164,6 +205,18 @@ iframe {
   background: var(--white);
   margin: 5px auto;
   transition: 0.3s;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* =========================
@@ -801,39 +854,8 @@ iframe {
     grid-template-columns: 1fr;
   }
 
-  .menu-toggle {
-    display: block;
-  }
-
   .nav-links {
-    position: absolute;
-    top: 76px;
-    right: 0;
-    width: min(80vw, 340px);
-    height: calc(100vh - 76px);
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 24px;
-    background: rgba(14, 14, 14, 0.97);
-    border-left: 1px solid #314153;
-    transform: translateX(100%);
-    transition: transform 0.35s ease;
-  }
-
-  .nav-links.open {
-    transform: translateX(0);
-  }
-
-  .menu-toggle.active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-
-  .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-toggle.active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    width: min(86vw, 340px);
   }
 }
 
